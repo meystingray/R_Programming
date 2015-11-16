@@ -2,7 +2,8 @@ corr <- function(directory, threshold = 0) {
 
   thisWD <- getwd()
   
-  gd <- paste(thisWD,"/",directory,sep="")
+  gd <- paste(thisWD,directory,sep="/")
+  #print(gd)
   setwd(gd)
   dirSet <- dir()
   corVector <- c()
@@ -10,7 +11,8 @@ corr <- function(directory, threshold = 0) {
   for (i in 1:length(dirSet)) {
     
     thisID <- dirSet[i]
-    fileName <- paste(thisWD,"/",directory,"/",dirSet[i],sep="")
+    fileName <- paste("C:/Users/seanco/Desktop/DataScienceCoursera/R_Programming/ProgrammingAssignment1","/",directory,"/",thisID,sep="")
+    #print(fileName)
     thisData <- read.csv(fileName)
     cc <- complete.cases(thisData)
     numcc <- length(cc[cc==TRUE])

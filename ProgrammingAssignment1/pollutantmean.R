@@ -11,7 +11,7 @@ pollutantmean <- function(directory, pollutant, id =  1:332) {
     else if (id[i] < 100) {thisID <- paste("0",id[i],sep="")}
     else {thisID <- id[i]}
 
-    fileName <- paste(thisDir,"/",directory,"/",thisID,".csv",sep="")
+    fileName <- paste(directory,"/",thisID,".csv",sep="")
     thisData = read.csv(fileName)
 
     if (pollutant == "sulfate") {
