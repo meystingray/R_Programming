@@ -1,4 +1,4 @@
-## 
+## Sean Conroy 11-16-15
 
 ## Helper fuctions for cachesolve
 
