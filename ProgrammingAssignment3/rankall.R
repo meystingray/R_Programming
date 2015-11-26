@@ -32,24 +32,23 @@ rankall <- function(outcome,num) {
   returnFrame <- c()
   
 
-  for (i in 1:numStates) {
+  for (i in c(1:numStates)) {
 
     thisState = statelist[[i]]
 
     thisStateFrame <- outcomeFrame[outcomeFrame[,2] == thisState,]
 
     thisStateFrame <- thisStateFrame[order(thisStateFrame[,3],thisStateFrame[,1],decreasing = FALSE),]
-    print(thisStateFrame)
-    cat ("Press [enter] to continue")
-    line <- readline()
+#     print(thisStateFrame)
+#     cat ("Press [enter] to continue")
+#     line <- readline()
+    #print(i)
+    if (num == "best") {numrow = 1}
+    else if (num == "worst") {numrow = nrow(thisStateFrame)}
+    else {numrow <- num}
     
-    if (num == "best") {num = 1}
-    if (num == "worst") {num = nrow(thisStateFrame)}
-  
-    if (nrow(thisStateFrame) < num) {
-      returnFrame <- rbind(returnFrame,c(NA,thisState))
-    } else {returnFrame <- rbind(returnFrame,c(thisStateFrame[num,1],thisState))
-    }
+    if (nrow(thisStateFrame) < numrow) {returnFrame <- rbind(returnFrame,c(NA,thisState))}
+    else {returnFrame <- rbind(returnFrame,c(thisStateFrame[numrow,1],thisState))}
     
   } # end for loop
   
